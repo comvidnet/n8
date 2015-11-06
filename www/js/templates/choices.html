@@ -5,24 +5,13 @@
 <ion-content scroll="false" class="choices-page">
     <div class="choices-slidebox">
         <ion-slide-box on-slide-changed="slideHasChanged($index)">
-            <ion-slide>
-                <div class="box">
-                    <div class="choice explore">
+            <ion-slide ng-repeat="choice in choices">
+                <div class="box" ng-class="choice.active ? 'active' : ''">
+                    <div class="choice" ng-class="choice.title" ng-click="choice.active = !choice.active">
                         <header></header>
                         <main>
-                            <h2 class="slide-title">Explore</h2>
-                            <p class="font-lg">I want to walk and see new things in the city</p>
-                        </main>
-                    </div>
-                </div>
-            </ion-slide>
-            <ion-slide>
-                <div class="box">
-                    <div class="choice museums">
-                        <header></header>
-                        <main>
-                            <h2 class="slide-title">Museums</h2>
-                            <p class="font-lg">I want to see..</p>
+                            <h2 class="slide-title">{{choice.title}}</h2>
+                            <p class="font-lg">{{choice.description}}</p>
                         </main>
                     </div>
                 </div>

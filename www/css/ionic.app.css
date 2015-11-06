@@ -9118,6 +9118,8 @@ a.button {
     margin: 0 30px;
     height: 350px;
     box-shadow: 0 0 20px rgba(0, 0, 0, 0.4); }
+    .choices-slidebox .box.active {
+      background-color: #c8ecff; }
     .choices-slidebox .box header {
       height: 200px; }
     .choices-slidebox .box main {

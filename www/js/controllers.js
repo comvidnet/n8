@@ -181,10 +181,19 @@ angular.module('app.controllers', [])
 
   })
     .controller('ChoicesCtrl', ['$scope', '$state', function($scope, $state) {
-        console.log('choices');
+        $scope.choices = [
+            {
+                title:'explore',
+                description:'I want to walk and see new things in the city',
+                active:false
+            },{
+                title:'museums',
+                description:'I want to visit Rijksmuseum',
+                active:false
+            }
+        ];
     }])
     .controller('ActivitiesCtrl', ['$scope', '$state', function($scope, $state) {
-        console.log('activities');
 
         $scope.activities = [
             {
