@@ -1,0 +1,22 @@
+/* Empty. Add your own CSS if you like */
+
+map {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+.scroll {
+  height: 100%;
+}
+
+#mapinfo {
+  position: absolute;
+  left: 5px;
+  top: 5px;
+  background: white;
+  width: 150px;
+  /*height: 100px;*/
+}
+#mapinfo span {
+  font-style: italic;
+}

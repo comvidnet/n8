@@ -1,0 +1,12 @@
+{
+  "name": "HelloIonic",
+  "private": "true",
+  "devDependencies": {
+    "ionic": "driftyco/ionic-bower#1.1.0",
+    "ionic-platform-web-client": "~0.2.1"
+  },
+  "dependencies": {
+    "lodash": "~3.10.1",
+    "ng-lodash": "~0.3.0"
+  }
+}
