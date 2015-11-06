@@ -1,0 +1,27 @@
+<!--<ion-header-bar class="bar-stable">
+  <h1 class="title">Smart Explore</h1>
+</ion-header-bar>-->
+
+<ion-content scroll="false" class="activities-page">
+    <div class="padding">
+        <ul class="activities-list">
+            <li class="activity" ng-repeat="activity in activities" ng-class="activity.active ? 'active' : ''">
+                <main ng-click="activity.active = !activity.active">
+                    <div class="circle">
+                        <i class="ion" ng-class="activity.image"></i>
+                    </div>
+                </main>
+                <footer>{{activity.title}}</footer>
+            </li>
+        </ul>
+    </div>
+</ion-content>
+
+<!--<ion-footer-bar class="bar-stable">-->
+  <!--<a ui-sref="map" class="button button-icon">Get Started</a>-->
+<!--</ion-footer-bar>-->
+<div class="bar bar-footer bar-royal">
+  <div ui-sref="map" class="title">
+      Let's go <i class="ion ion-arrow-right-c"></i>
+  </div>
+</div>

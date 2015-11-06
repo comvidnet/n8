@@ -1,0 +1,41 @@
+.choices-page {
+  background-color: $calm;
+}
+
+.choices-slidebox {
+  padding: 60px 0;
+  .slider {
+    padding-bottom: 50px;
+  }
+  .box {
+    background-color: white;
+    margin: 0 30px;
+    height: 350px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.4);
+    header {
+      height: 200px;
+    }
+    main {
+      padding: 20px;
+      text-align: center;
+      color:$blue-dark;
+      .slide-title {
+        font-size: 21px;
+        color:$blue-dark;
+        text-transform: uppercase;
+      }
+    }
+    .explore {
+      header {
+        background: url(/img/street.jpg) no-repeat center center;
+        background-size: cover;
+      }
+    }
+    .museums {
+      header {
+        background: url(/img/rijks.jpg) no-repeat center center;
+        background-size: cover;
+      }
+    }
+  }
+}

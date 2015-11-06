@@ -43,4 +43,14 @@ angular.module('app', ['ionic','ionic.service.core', 'ngLodash', 'app.controller
       templateUrl: 'js/templates/map-step.html',
       controller: 'MapStepCtrl'
     });
+    $stateProvider.state('choices', {
+      url: '/choices',
+      templateUrl: 'js/templates/choices.html',
+      controller: 'ChoicesCtrl'
+    });
+    $stateProvider.state('activities', {
+      url: '/activities',
+      templateUrl: 'js/templates/activities.html',
+      controller: 'ActivitiesCtrl'
+    });
   }])
