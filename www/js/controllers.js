@@ -46,12 +46,30 @@ angular.module('app.controllers', [])
       $state.go('app.map');
     };
   }])
-.controller('MapCtrl', function($scope, $ionicLoading, lodash) {
+.controller('MapCtrl', function($scope, $ionicLoading, lodash, $ionicModal) {
     $scope.routeInfo = [];
     $scope.loading = $ionicLoading.show({
       content: 'Loading...',
       showBackdrop: false
     });
+
+    $scope.route = {
+        title:'Route #1',
+        description:'2 museums, walk by Hortus Botanical, lunch at Artis zoo, end your day at Rijksmuseum'
+    };
+
+    $ionicModal.fromTemplateUrl('/js/modals/route-modal.html', {
+        scope: $scope,
+        animation: 'slide-in-up'
+    }).then(function(modal) {
+        $scope.modal = modal;
+    });
+    $scope.openModal = function() {
+        $scope.modal.show();
+    };
+    $scope.closeModal = function() {
+        $scope.modal.hide();
+    };
 
     $scope.mapCreated = function(map) {
       $scope.map = map;
@@ -142,8 +160,6 @@ angular.module('app.controllers', [])
       alert('Unable to get location: ' + error.message);
     });
   };
-
-
 
 })
   .controller('MapStepCtrl', function($scope, $ionicLoading, lodash) {
@@ -242,4 +258,8 @@ angular.module('app.controllers', [])
                 active:false
             }
         ]
+    }])
+
+    .controller('TimeCtrl', ['$scope', '$state', function($scope, $state) {
+
     }]);

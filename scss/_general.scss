@@ -1,3 +1,12 @@
+
+h1 {
+  margin: 50px auto;
+  max-width: 80%;
+  color:white;
+  text-align: center;
+  font-weight: 100;
+}
+
 .align-center {
   text-align: center;
 }
@@ -46,4 +55,48 @@ map {
 }
 #mapinfo span {
   font-style: italic;
+}
+
+
+
+.n8-box {
+  background-color: white;
+  height: 350px;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.4);
+  header {
+    height: 200px;
+  }
+  main {
+    padding: 20px;
+    text-align: center;
+    color:$blue-dark;
+    .box-title {
+      font-size: 20px;
+      color:$blue-dark;
+      text-transform: uppercase;
+    }
+    .box-subtitle {
+      font-size: 16px;
+      color:$royal;
+      text-transform: uppercase;
+    }
+  }
+}
+
+.modal-backdrop {
+  background-color: rgba(0, 0, 0, 0.49);
+}
+.modal {
+  background-color: transparent;
+  .n8-box {
+    margin: 40px;
+    padding: 0;
+    height: 400px;
+    .box-title {
+      margin-bottom: 0;
+    }
+    .box-subtitle {
+      margin-top: 0;
+    }
+  }
 }

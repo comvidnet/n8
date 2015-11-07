@@ -8,25 +8,9 @@
     padding-bottom: 50px;
   }
   .box {
-    background-color: white;
     margin: 0 30px;
-    height: 350px;
-    box-shadow: 0 0 20px rgba(0, 0, 0, 0.4);
     &.active {
       background-color: #c8ecff;
-    }
-    header {
-      height: 200px;
-    }
-    main {
-      padding: 20px;
-      text-align: center;
-      color:$blue-dark;
-      .slide-title {
-        font-size: 21px;
-        color:$blue-dark;
-        text-transform: uppercase;
-      }
     }
     .explore {
       header {
@@ -41,4 +25,9 @@
       }
     }
   }
+}
+
+.time-page {
+  background-color: $calm;
+  padding-top: 60px;
 }

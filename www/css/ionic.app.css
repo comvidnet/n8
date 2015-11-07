@@ -9072,6 +9072,13 @@ a.button {
   -webkit-transition-duration: 0s;
   transition-duration: 0s; }
 
+h1 {
+  margin: 50px auto;
+  max-width: 80%;
+  color: white;
+  text-align: center;
+  font-weight: 100; }
+
 .align-center {
   text-align: center; }
 
@@ -9114,14 +9121,41 @@ map {
 #mapinfo span {
   font-style: italic; }
 
-.start-page {
-  box-shadow: inset 0 0 0 500px rgba(97, 97, 97, 0.6); }
-  .start-page h1 {
-    margin: 50px auto;
-    max-width: 80%;
-    color: white;
+.n8-box {
+  background-color: white;
+  height: 350px;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.4); }
+  .n8-box header {
+    height: 200px; }
+  .n8-box main {
+    padding: 20px;
     text-align: center;
-    font-weight: 100; }
+    color: #3a3c52; }
+    .n8-box main .box-title {
+      font-size: 20px;
+      color: #3a3c52;
+      text-transform: uppercase; }
+    .n8-box main .box-subtitle {
+      font-size: 16px;
+      color: #5b74ff;
+      text-transform: uppercase; }
+
+.modal-backdrop {
+  background-color: rgba(0, 0, 0, 0.49); }
+
+.modal {
+  background-color: transparent; }
+  .modal .n8-box {
+    margin: 40px;
+    padding: 0;
+    height: 400px; }
+    .modal .n8-box .box-title {
+      margin-bottom: 0; }
+    .modal .n8-box .box-subtitle {
+      margin-top: 0; }
+
+.start-page {
+  box-shadow: inset 0 0 0 500px rgba(37, 37, 37, 0.6); }
 
 .choices-page {
   background-color: #00dda7; }
@@ -9131,28 +9165,19 @@ map {
   .choices-slidebox .slider {
     padding-bottom: 50px; }
   .choices-slidebox .box {
-    background-color: white;
-    margin: 0 30px;
-    height: 350px;
-    box-shadow: 0 0 20px rgba(0, 0, 0, 0.4); }
+    margin: 0 30px; }
     .choices-slidebox .box.active {
       background-color: #c8ecff; }
-    .choices-slidebox .box header {
-      height: 200px; }
-    .choices-slidebox .box main {
-      padding: 20px;
-      text-align: center;
-      color: #3a3c52; }
-      .choices-slidebox .box main .slide-title {
-        font-size: 21px;
-        color: #3a3c52;
-        text-transform: uppercase; }
     .choices-slidebox .box .explore header {
       background: url(/img/street.jpg) no-repeat center center;
       background-size: cover; }
     .choices-slidebox .box .museums header {
       background: url(/img/rijks.jpg) no-repeat center center;
       background-size: cover; }
+
+.time-page {
+  background-color: #00dda7;
+  padding-top: 60px; }
 
 .activities-page {
   background-color: #00dda7; }
