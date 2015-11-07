@@ -8,7 +8,7 @@
   <map on-create="mapCreated(map)"></map>
     <button class="button button-royal icon ion-information button-info" ng-click="openFullRouteModal()"></button>
 
-    <ul id="mapinfo" ng-click="openModal()">
+    <ul id="mapinfo" class="hidden" ng-click="openModal()">
         <li ng-repeat="info in routeInfo">
           <i class="ion ion-email"></i>
             {{info.text}} <span>{{info.duration}}</span>
