@@ -1,6 +1,6 @@
 var toplocations = [];
 toplocations.push({
-  location: 'Rijksmuseum Amsterdam',
+  location: 'Anne Frank Amsterdam',
   latitude: 1,
   longitude: 2,
   time: 120
@@ -105,6 +105,7 @@ angular.module('app.controllers', [])
         //getRouteFrom server
 
         $http.get('http://n8.test.ilumy.com:3000/getRoute').then(function(result) {
+        //$http.get('http://localhost:3000/getRoute?loc='+toplocations[0].location).then(function(result) {
 
           rp = result.data.route.route;
           var waytp = rp.slice();
