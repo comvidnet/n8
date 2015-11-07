@@ -53,4 +53,9 @@ angular.module('app', ['ionic','ionic.service.core', 'ngLodash', 'app.controller
       templateUrl: 'js/templates/activities.html',
       controller: 'ActivitiesCtrl'
     });
+    $stateProvider.state('time', {
+      url: '/time',
+      templateUrl: 'js/templates/time.html',
+      controller: 'TimeCtrl'
+    });
   }])

@@ -4,7 +4,7 @@
 
 <ion-content scroll="false">
   <map on-create="mapCreated(map)"></map>
-  <ul id="mapinfo">
+  <ul id="mapinfo" ng-click="openModal()">
     <li ng-repeat="info in routeInfo">
       <i class="ion ion-email"></i>
         {{info.text}} <span>{{info.duration}}</span>
