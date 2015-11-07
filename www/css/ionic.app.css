@@ -9095,6 +9095,25 @@ a.button {
   .bar-footer i {
     margin-left: 15px; }
 
+map {
+  display: block;
+  width: 100%;
+  height: 100%; }
+
+.scroll {
+  height: 100%; }
+
+#mapinfo {
+  position: absolute;
+  left: 5px;
+  top: 5px;
+  background: white;
+  width: 150px;
+  /*height: 100px;*/ }
+
+#mapinfo span {
+  font-style: italic; }
+
 .start-page {
   box-shadow: inset 0 0 0 500px rgba(97, 97, 97, 0.6); }
   .start-page h1 {

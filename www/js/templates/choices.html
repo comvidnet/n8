@@ -8,7 +8,7 @@
             <ion-slide ng-repeat="choice in choices">
                 <div class="box" ng-class="choice.active ? 'active' : ''">
                     <div class="choice" ng-class="choice.title" ng-click="choice.active = !choice.active">
-                        <header style="background:url({{baseUrl + 'img/' + choice.title + '.jpg'}}); background-size: cover;"></header>
+                        <header style="background:url({{baseUrl + 'img/' + choice.title + '.jpg'}}) no-repeat center center; background-size: cover;"></header>
                         <main>
                             <h2 class="slide-title">{{choice.title}}</h2>
                             <p class="font-lg">{{choice.description}}</p>

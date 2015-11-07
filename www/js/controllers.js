@@ -1,4 +1,4 @@
-var toplocations = []
+var toplocations = [];
 toplocations.push({
   location: 'Rijksmuseum Amsterdam',
   latitude: 1,
