@@ -1,4 +1,4 @@
-var toplocations = []
+var toplocations = [];
 toplocations.push({
   location: 'Rijksmuseum Amsterdam',
   latitude: 1,
@@ -38,10 +38,10 @@ rp.push({
 });
 
 angular.module('app.controllers', [])
-  .controller('MainCtrl', function($scope, $ionicLoading) {
-
+  .controller('MainCtrl', function($scope, $rootScope, $ionicLoading) {
+     $rootScope.baseUrl = 'http://localhost:8100/';
   })
-  .controller('IndexCtrl', ['$scope', '$state', function($scope, $state) {
+  .controller('IndexCtrl', ['$scope', '$rootScope', '$state', function($scope, $rootScope, $state) {
     $scope.goToMap = function () {
       $state.go('app.map');
     };
