@@ -100,7 +100,7 @@ angular.module('app.controllers', [])
       navigator.geolocation.getCurrentPosition(function (pos) {
         //getRouteFrom server
 
-        $http.get('http://n8.test.ilumy.com:3000/getRoute').then(function(result) {
+        $http.get('http://n8.test.ilumy.com:3000/getRoute?loc='+toplocations[0].location).then(function(result) {
         //$http.get('http://localhost:3000/getRoute?loc='+toplocations[0].location).then(function(result) {
 
           rp = result.data.route.route;
