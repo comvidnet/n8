@@ -8,21 +8,13 @@ toplocations.push({
 
 var rp = [];
 rp.push({
-  location: 'Paleis dam Amsterdam',
-  type: 'building',
+  location: 'user',
+  type: 'user',
   time: 2,
   latitude: 1,
   longitude: 2,
-  next: 'Hermitage Amsterdam'
-});
-
-rp.push({
-  location: 'Hermitage Amsterdam',
-  type: 'museum',
-  time: 90,
   next: 'Artis Amsterdam'
 });
-
 rp.push({
   location: 'Artis Amsterdam',
   type: 'food',
@@ -34,8 +26,17 @@ rp.push({
   type: 'museum',
   time: 75,
   travel: 'public',
-  next: 'Rijksmuseum'
+  next: 'Hermitage Amsterdam'
 });
+rp.push({
+  location: 'Hermitage Amsterdam',
+  type: 'museum',
+  time: 90,
+  next: 'Rijksmuseum Amsterdam'
+});
+
+var routeSteps = [];
+
 
 angular.module('app.controllers', [])
   .controller('MainCtrl', function($scope, $rootScope, $ionicLoading) {
@@ -55,8 +56,9 @@ angular.module('app.controllers', [])
 
     $scope.mapCreated = function(map) {
       $scope.map = map;
-
-      var waypts = lodash.map(rp, function(wp) {
+      var waytp = rp.slice();
+      waytp.shift();
+      waypts = lodash.map(waytp, function(wp) {
         return {
           location: wp.location
         }
@@ -64,8 +66,10 @@ angular.module('app.controllers', [])
 
       var directionsService = new google.maps.DirectionsService;
       var directionsDisplay = new google.maps.DirectionsRenderer(/*{suppressMarkers: true}*/);
+
       directionsDisplay.setMap(map);
       navigator.geolocation.getCurrentPosition(function (pos) {
+        rp[0].location = new google.maps.LatLng(pos.coords.latitude, pos.coords.longitude);
         directionsService.route({
           origin: new google.maps.LatLng(pos.coords.latitude, pos.coords.longitude),
           destination: toplocations[0].location,
@@ -87,6 +91,11 @@ angular.module('app.controllers', [])
                 $scope.routeInfo.push({
                   text: route.legs[i].start_address,
                   duration: route.legs[i].duration.text});
+
+                routeSteps.push({
+                    location: route.legs[i].start_address,
+                    next: route.legs[i].end_address
+                  })
                 //  var routeSegment = i + 1;
                 //  summaryPanel.innerHTML += '<b>Route Segment: ' + routeSegment +
                 //    '</b><br>';
@@ -162,7 +171,7 @@ angular.module('app.controllers', [])
 
 
     $scope.nextStep = function() {
-        var loc =rp[ $scope.step];
+        var loc =routeSteps[ $scope.step];
         var ds = {
           origin: loc.location,
           destination: loc.next
