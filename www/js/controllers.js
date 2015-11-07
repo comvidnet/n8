@@ -36,7 +36,7 @@ rp.push({
 });
 
 var routeSteps = [];
-
+var queuelength= 0;
 
 angular.module('app.controllers', [])
   .controller('MainCtrl', function($scope, $rootScope, $ionicModal, $ionicLoading) {
@@ -93,7 +93,8 @@ angular.module('app.controllers', [])
       $scope.map = map;
 
 
-      var directionsService = new google.maps.DirectionsService;
+      var directionsService = new
+        google.maps.DirectionsService;
       var directionsDisplay = new google.maps.DirectionsRenderer(/*{suppressMarkers: true}*/);
 
       directionsDisplay.setMap(map);
@@ -102,7 +103,7 @@ angular.module('app.controllers', [])
 
         $http.get('http://n8.test.ilumy.com:3000/getRoute?loc='+toplocations[0].location).then(function(result) {
         //$http.get('http://localhost:3000/getRoute?loc='+toplocations[0].location).then(function(result) {
-
+          queuelength = result.data.museum.queuelength;
           rp = result.data.route.route;
           var waytp = rp.slice();
           waytp.shift();
@@ -129,6 +130,10 @@ angular.module('app.controllers', [])
               // For each route, display summary information.
 
               $scope.$apply(function () {
+                for (var j = 0; j < route.waypoint_order.length; j++) {
+                  rp[j].order = route.waypoint_order[j];
+                }
+                rp = lodash.sortBy(rp, 'order');
                 for (var i = 0; i < route.legs.length; i++) {
                   $scope.routeInfo.push({
                     text: route.legs[i].start_address,
@@ -231,11 +236,17 @@ angular.module('app.controllers', [])
 
 
     $scope.nextStep = function() {
-        var loc =routeSteps[ $scope.step];
+        var loc =rp[ $scope.step];
         var ds = {
           origin: loc.location,
           destination: loc.next
         }
+      if($scope.step == rp.length - 1) {
+        if(queuelength) {
+          $scope.showqueuelength = true;
+          $scope.queuelength = queuelength;
+        }
+      }
         if (loc.travel == 'public')
           ds.travelMode = google.maps.TravelMode.TRANSIT;
         else

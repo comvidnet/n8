@@ -3,6 +3,7 @@
 <!--</ion-header-bar>-->
 
 <ion-content scroll="false" class="mapstep-page">
+  <div id="waitTime" ng-show="showqueuelength">{{queuelength}} people in line</div>
   <map on-create="mapCreated(map)"></map>
   <button class="button button-royal icon ion-information button-info" ng-click="openFullRouteModal()"></button>
 </ion-content>
