@@ -60,7 +60,7 @@ angular.module('app.controllers', [])
       $state.go('app.map');
     };
   }])
-.controller('MapCtrl', function($scope, $ionicLoading, lodash, $ionicModal) {
+.controller('MapCtrl', function($scope, $ionicLoading, lodash, $ionicModal, $timeout) {
     $scope.routeInfo = [];
     $scope.loading = $ionicLoading.show({
       content: 'Loading...',
@@ -84,6 +84,9 @@ angular.module('app.controllers', [])
     $scope.closeModal = function() {
         $scope.modal.hide();
     };
+    $timeout(function(){
+        $scope.openModal();
+    },2000);
 
     $scope.mapCreated = function(map) {
       $scope.map = map;
@@ -176,7 +179,7 @@ angular.module('app.controllers', [])
   };
 
 })
-  .controller('MapStepCtrl', function($scope, $ionicModal, $ionicLoading, lodash) {
+  .controller('MapStepCtrl', function($scope, $ionicModal, $timeout, lodash) {
 
     $scope.current = rp[1];
         console.log($scope.current);
@@ -192,6 +195,10 @@ angular.module('app.controllers', [])
     $scope.closeModal = function() {
         $scope.modal.hide();
     };
+
+    $timeout(function(){
+        $scope.openModal();
+    },2000);
 
     var directionsService = new google.maps.DirectionsService;
     var directionsDisplay = new google.maps.DirectionsRenderer(/*{suppressMarkers: true}*/);
