@@ -39,8 +39,12 @@ var routeSteps = [];
 
 
 angular.module('app.controllers', [])
-  .controller('MainCtrl', function($scope, $rootScope, $ionicModal, $ionicLoading) {
+  .controller('MainCtrl', function($scope, $rootScope, $ionicModal, $ionicNavBarDelegate) {
      $rootScope.baseUrl = 'http://localhost:8100/';
+
+        $rootScope.back = function(){
+            $ionicNavBarDelegate.back();
+        };
 
     $rootScope.rp = rp;
     $ionicModal.fromTemplateUrl('/js/modals/full-route-modal.html', {
@@ -100,7 +104,7 @@ angular.module('app.controllers', [])
       navigator.geolocation.getCurrentPosition(function (pos) {
         //getRouteFrom server
 
-        $http.get('http://localhost:3000/getRoute').then(function(result) {
+        $http.get('http://localhost:8100/getRoute').then(function(result) {
 
           rp = result.data.route.route;
           var waytp = rp.slice();

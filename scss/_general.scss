@@ -115,6 +115,9 @@ map {
 }
 .modal {
   background-color: transparent;
+  .has-header {
+    top: 0;
+  }
   .n8-box {
     margin: 40px;
     padding: 0;
