@@ -1,0 +1,16 @@
+<ion-modal-view class="modal">
+    <ion-content>
+        <div class="card n8-box">
+            <header style="background:url({{baseUrl + 'img/museums.jpg'}}) no-repeat center center; background-size: cover;"></header>
+            <main>
+                <h2 class="box-title">First stop</h2>
+                <h3 class="box-subtitle">Walk {{current.time}} min to</h3>
+                <p class="font-lg">{{current.location}}</p>
+                <p>{{current.description}}</p>
+            </main>
+        </div>
+    </ion-content>
+    <div class="bar bar-footer bar-royal">
+        <div ng-click="closeModal()" class="title">Thanks, resume <i class="ion ion-arrow-right-c"></i></div>
+    </div>
+</ion-modal-view>
