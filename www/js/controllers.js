@@ -47,7 +47,7 @@ angular.module('app.controllers', [])
       $state.go('app.map');
     };
   }])
-.controller('MapCtrl', function($scope, $ionicLoading, lodash, $ionicModal) {
+.controller('MapCtrl', function($scope, $ionicLoading, lodash, $ionicModal, $http) {
     $scope.routeInfo = [];
     $scope.loading = $ionicLoading.show({
       content: 'Loading...',
@@ -74,58 +74,65 @@ angular.module('app.controllers', [])
 
     $scope.mapCreated = function(map) {
       $scope.map = map;
-      var waytp = rp.slice();
-      waytp.shift();
-      waypts = lodash.map(waytp, function(wp) {
-        return {
-          location: wp.location
-        }
-      })
+
 
       var directionsService = new google.maps.DirectionsService;
       var directionsDisplay = new google.maps.DirectionsRenderer(/*{suppressMarkers: true}*/);
 
       directionsDisplay.setMap(map);
       navigator.geolocation.getCurrentPosition(function (pos) {
-        rp[0].location = new google.maps.LatLng(pos.coords.latitude, pos.coords.longitude);
-        directionsService.route({
-          origin: new google.maps.LatLng(pos.coords.latitude, pos.coords.longitude),
-          destination: toplocations[0].location,
-          waypoints: waypts,
-          optimizeWaypoints: true,
-          travelMode: google.maps.TravelMode.WALKING
-        }, function (response, status) {
-          if (status === google.maps.DirectionsStatus.OK) {
-            directionsDisplay.setDirections(response);
-            $scope.loading.hide();
+        //getRouteFrom server
 
-            var route = response.routes[0];
-            //var summaryPanel = document.getElementById('directions-panel');
-            //summaryPanel.innerHTML = '';
-            // For each route, display summary information.
+        $http.get('http://localhost:3000/getRoute').then(function(result) {
 
-            $scope.$apply(function () {
-              for (var i = 0; i < route.legs.length; i++) {
-                $scope.routeInfo.push({
-                  text: route.legs[i].start_address,
-                  duration: route.legs[i].duration.text});
+          rp = result.data.route.route;
+          var waytp = rp.slice();
+          waytp.shift();
+          waypts = lodash.map(waytp, function(wp) {
+            return {
+              location: wp.location
+            }
+          })
+          rp[0].location = new google.maps.LatLng(pos.coords.latitude, pos.coords.longitude);
+          directionsService.route({
+            origin: new google.maps.LatLng(pos.coords.latitude, pos.coords.longitude),
+            destination: toplocations[0].location,
+            waypoints: waypts,
+            optimizeWaypoints: true,
+            travelMode: google.maps.TravelMode.WALKING
+          }, function (response, status) {
+            if (status === google.maps.DirectionsStatus.OK) {
+              directionsDisplay.setDirections(response);
+              $scope.loading.hide();
 
-                routeSteps.push({
-                    location: route.legs[i].start_address,
-                    next: route.legs[i].end_address
-                  })
-                //  var routeSegment = i + 1;
-                //  summaryPanel.innerHTML += '<b>Route Segment: ' + routeSegment +
-                //    '</b><br>';
-                //  summaryPanel.innerHTML += route.legs[i].start_address + ' to ';
-                //  summaryPanel.innerHTML += route.legs[i].end_address + '<br>';
-                //  summaryPanel.innerHTML += route.legs[i].distance.text + '<br><br>';
-              }
-            });
-          } else {
-            window.alert('Directions request failed due to ' + status);
-          }
-        });
+              var route = response.routes[0];
+              //var summaryPanel = document.getElementById('directions-panel');
+              //summaryPanel.innerHTML = '';
+              // For each route, display summary information.
+
+              $scope.$apply(function () {
+                for (var i = 0; i < route.legs.length; i++) {
+                  $scope.routeInfo.push({
+                    text: route.legs[i].start_address,
+                    duration: route.legs[i].duration.text});
+
+                  routeSteps.push({
+                      location: route.legs[i].start_address,
+                      next: route.legs[i].end_address
+                    })
+                  //  var routeSegment = i + 1;
+                  //  summaryPanel.innerHTML += '<b>Route Segment: ' + routeSegment +
+                  //    '</b><br>';
+                  //  summaryPanel.innerHTML += route.legs[i].start_address + ' to ';
+                  //  summaryPanel.innerHTML += route.legs[i].end_address + '<br>';
+                  //  summaryPanel.innerHTML += route.legs[i].distance.text + '<br><br>';
+                }
+              });
+            } else {
+              window.alert('Directions request failed due to ' + status);
+            }
+          });
+        })
       });
 
     var myloc = new google.maps.Marker({
