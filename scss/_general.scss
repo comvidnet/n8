@@ -19,6 +19,14 @@ h1 {
   height: 100%;
 }
 
+.no-margin {
+  margin: 0;
+}
+
+.hidden {
+  display: none;
+}
+
 .display-table {
   display: table;
 }
@@ -65,7 +73,7 @@ map {
     height:auto;
   }
   &.medium {
-    margin-top: 50px;
+    margin-top: 20px;
     .logo {
       width: 80px;
     }
@@ -115,6 +123,9 @@ map {
 }
 .modal {
   background-color: transparent;
+  .has-header {
+    top: 0;
+  }
   .n8-box {
     margin: 40px;
     padding: 0;

@@ -1,17 +1,19 @@
-<!--<ion-header-bar class="bar-stable">
-  <h1 class="title">Map</h1>
-</ion-header-bar>-->
+
+<ion-header-bar class="bar-stable">
+    <a class="button button-icon icon ion-chevron-left" ng-click="back()"></a>
+    <h1 class="title">Your route</h1>
+</ion-header-bar>
 
 <ion-content scroll="false">
   <map on-create="mapCreated(map)"></map>
     <button class="button button-royal icon ion-information button-info" ng-click="openFullRouteModal()"></button>
 
-    <ul id="mapinfo" ng-click="openModal()">
-    <li ng-repeat="info in routeInfo">
-      <i class="ion ion-email"></i>
-        {{info.text}} <span>{{info.duration}}</span>
-    </li>
-  </ul>
+    <ul id="mapinfo" class="hidden" ng-click="openModal()">
+        <li ng-repeat="info in routeInfo">
+          <i class="ion ion-email"></i>
+            {{info.text}} <span>{{info.duration}}</span>
+        </li>
+    </ul>
 </ion-content>
 
 <div class="bar bar-footer bar-calm">

@@ -1,14 +1,25 @@
 <ion-modal-view class="modal">
     <ion-content>
-        <ul class="list">
-            <li class="item item-calm">
-                Your location
+        <ul class="list full-route-list">
+            <li class="item item-calm item-icon-left">
+                <i class="icon ion-record"></i>
+                {{routeInfo[0].text}}
             </li>
-            <li class="item item-calm">
-                {{rp[rp.length - 1].next}}
+            <li class="item item-calm item-icon-left">
+                <i class="icon ion-location"></i>
+                {{routeInfo[routeInfo.length - 1].text}}
             </li>
-            <li class="item" ng-repeat="step in rp">
-                {{step.location}}
+            <li>
+                <ul class="list no-margin" ng-repeat="step in routeInfo">
+                    <li class="item item-icon-left item-icon-right route-item-process">
+                        Walk {{step.duration}}
+                    </li>
+                    <li class="item item-icon-left item-icon-right route-item-result">
+                        <i class="icon"></i>
+                        {{step.text}}
+                        <i class="icon ion-arrow-right-c"></i>
+                    </li>
+                </ul>
             </li>
         </ul>
     </ion-content>

@@ -19,7 +19,7 @@ $blue-dark:                            #3a3c52   !default;
 
 
 //bars
-$bar-height: 70px;
+$bar-height: 50px;
 
 
 // The path for our ionicons font files, relative to the built CSS in www/css
@@ -32,4 +32,5 @@ $ionicons-font-path: "../lib/ionic/fonts" !default;
 @import "general",
         "start",
         "choices",
-        "activities";
+        "activities",
+        "map";
