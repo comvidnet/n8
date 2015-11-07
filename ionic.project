@@ -1,4 +1,12 @@
 {
   "name": "n8",
-  "app_id": "a297f2ba"
+  "app_id": "a297f2ba",
+  "gulpStartupTasks": [
+    "sass",
+    "watch"
+  ],
+  "watchPatterns": [
+    "www/**/*",
+    "!www/lib/**/*"
+  ]
 }

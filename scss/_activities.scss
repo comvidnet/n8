@@ -1,0 +1,36 @@
+.activities-page {
+  background-color: $calm;
+}
+
+.activities-list {
+  margin-top: 50px;
+  text-align: center;
+  .activity {
+    display: inline-block;
+    margin: 10px;
+    .circle {
+      width: 55px;
+      height: 55px;
+      margin: auto;
+      background-color: white;
+      border-radius: 50%;
+      text-align: center;
+      i {
+        font-size: 31px;
+        line-height: 52px;
+      }
+    }
+    footer {
+      color:white;
+      text-align: center;
+    }
+    &.active {
+      .circle {
+        background-color: $positive;
+        i {
+          color:white;
+        }
+      }
+    }
+  }
+}

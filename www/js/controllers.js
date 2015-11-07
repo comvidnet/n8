@@ -54,7 +54,7 @@ angular.module('app.controllers', [])
     });
 
     $scope.mapCreated = function(map) {
-    $scope.map = map;
+      $scope.map = map;
 
       var waypts = lodash.map(rp, function(wp) {
         return {
@@ -165,7 +165,7 @@ angular.module('app.controllers', [])
         var loc =rp[ $scope.step];
         var ds = {
           origin: loc.location,
-          destination: loc.next,
+          destination: loc.next
         }
         if (loc.travel == 'public')
           ds.travelMode = google.maps.TravelMode.TRANSIT;
@@ -179,4 +179,67 @@ angular.module('app.controllers', [])
       $scope.step++;
     };
 
-  });
+  })
+    .controller('ChoicesCtrl', ['$scope', '$state', function($scope, $state) {
+        $scope.choices = [
+            {
+                title:'explore',
+                description:'I want to walk and see new things in the city',
+                active:false
+            },{
+                title:'museums',
+                description:'I want to visit Rijksmuseum',
+                active:false
+            }
+        ];
+    }])
+    .controller('ActivitiesCtrl', ['$scope', '$state', function($scope, $state) {
+
+        $scope.activities = [
+            {
+                title:'cycle',
+                image:'ion-android-bicycle',
+                active:false
+            },{
+                title:'boat',
+                image:'ion-android-boat',
+                active:false
+            },{
+                title:'surprise',
+                image:'ion-load-b',
+                active:false
+            },{
+                title:'local food',
+                image:'ion-fork',
+                active:false
+            },{
+                title:'sightseeing',
+                image:'ion-camera',
+                active:false
+            },{
+                title:'walk',
+                image:'ion-android-walk',
+                active:false
+            },{
+                title:'park',
+                image:'ion-leaf',
+                active:false
+            },{
+                title:'museum',
+                image:'ion-android-home',
+                active:false
+            },{
+                title:'festival',
+                image:'ion-music-note',
+                active:false
+            },{
+                title:'pancakes',
+                image:'ion-navicon-round',
+                active:false
+            },{
+                title:'shopping',
+                image:'ion-bag',
+                active:false
+            }
+        ]
+    }]);

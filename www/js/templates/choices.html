@@ -1,0 +1,30 @@
+<!--<ion-header-bar class="bar-stable">
+  <h1 class="title">Smart Explore</h1>
+</ion-header-bar>-->
+
+<ion-content scroll="false" class="choices-page">
+    <div class="choices-slidebox">
+        <ion-slide-box on-slide-changed="slideHasChanged($index)">
+            <ion-slide ng-repeat="choice in choices">
+                <div class="box" ng-class="choice.active ? 'active' : ''">
+                    <div class="choice" ng-class="choice.title" ng-click="choice.active = !choice.active">
+                        <header></header>
+                        <main>
+                            <h2 class="slide-title">{{choice.title}}</h2>
+                            <p class="font-lg">{{choice.description}}</p>
+                        </main>
+                    </div>
+                </div>
+            </ion-slide>
+        </ion-slide-box>
+    </div>
+</ion-content>
+
+<!--<ion-footer-bar class="bar-stable">-->
+  <!--<a ui-sref="map" class="button button-icon">Get Started</a>-->
+<!--</ion-footer-bar>-->
+<div class="bar bar-footer bar-royal">
+  <div ui-sref="activities" class="title">
+      Let's go <i class="ion ion-arrow-right-c"></i>
+  </div>
+</div>
