@@ -39,15 +39,29 @@ var routeSteps = [];
 
 
 angular.module('app.controllers', [])
-  .controller('MainCtrl', function($scope, $rootScope, $ionicLoading) {
+  .controller('MainCtrl', function($scope, $rootScope, $ionicModal, $ionicLoading) {
      $rootScope.baseUrl = 'http://localhost:8100/';
+
+    $rootScope.rp = rp;
+    $ionicModal.fromTemplateUrl('/js/modals/full-route-modal.html', {
+        scope: $scope,
+        animation: 'slide-in-up'
+    }).then(function(modal) {
+        $rootScope.modalFullRoute = modal;
+    });
+    $rootScope.openFullRouteModal = function() {
+        $rootScope.modalFullRoute.show();
+    };
+    $rootScope.closeFullRouteModal = function() {
+        $rootScope.modalFullRoute.hide();
+    };
   })
   .controller('IndexCtrl', ['$scope', '$rootScope', '$state', function($scope, $rootScope, $state) {
     $scope.goToMap = function () {
       $state.go('app.map');
     };
   }])
-.controller('MapCtrl', function($scope, $ionicLoading, lodash, $ionicModal, $http) {
+.controller('MapCtrl', function($scope, $ionicLoading, lodash, $ionicModal, $http, $ionicModal, $timeout) {
     $scope.routeInfo = [];
     $scope.loading = $ionicLoading.show({
       content: 'Loading...',
@@ -71,6 +85,9 @@ angular.module('app.controllers', [])
     $scope.closeModal = function() {
         $scope.modal.hide();
     };
+    $timeout(function(){
+        $scope.openModal();
+    },2000);
 
     $scope.mapCreated = function(map) {
       $scope.map = map;
@@ -178,7 +195,26 @@ angular.module('app.controllers', [])
   };
 
 })
-  .controller('MapStepCtrl', function($scope, $ionicLoading, lodash) {
+  .controller('MapStepCtrl', function($scope, $ionicModal, $timeout, lodash) {
+
+    $scope.current = rp[1];
+        console.log($scope.current);
+    $ionicModal.fromTemplateUrl('/js/modals/step-modal.html', {
+        scope: $scope,
+        animation: 'slide-in-up'
+    }).then(function(modal) {
+        $scope.modal = modal;
+    });
+    $scope.openModal = function() {
+        $scope.modal.show();
+    };
+    $scope.closeModal = function() {
+        $scope.modal.hide();
+    };
+
+    $timeout(function(){
+        $scope.openModal();
+    },2000);
 
     var directionsService = new google.maps.DirectionsService;
     var directionsDisplay = new google.maps.DirectionsRenderer(/*{suppressMarkers: true}*/);

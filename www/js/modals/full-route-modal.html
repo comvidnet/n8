@@ -1,0 +1,18 @@
+<ion-modal-view class="modal">
+    <ion-content>
+        <ul class="list">
+            <li class="item item-calm">
+                Your location
+            </li>
+            <li class="item item-calm">
+                {{rp[rp.length - 1].next}}
+            </li>
+            <li class="item" ng-repeat="step in rp">
+                {{step.location}}
+            </li>
+        </ul>
+    </ion-content>
+    <div class="bar bar-footer bar-royal">
+        <div ng-click="closeFullRouteModal()" class="title">Show map <i class="ion ion-arrow-right-c"></i></div>
+    </div>
+</ion-modal-view>
