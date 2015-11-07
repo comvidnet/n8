@@ -47,12 +47,30 @@ angular.module('app.controllers', [])
       $state.go('app.map');
     };
   }])
-.controller('MapCtrl', function($scope, $ionicLoading, lodash) {
+.controller('MapCtrl', function($scope, $ionicLoading, lodash, $ionicModal) {
     $scope.routeInfo = [];
     $scope.loading = $ionicLoading.show({
       content: 'Loading...',
       showBackdrop: false
     });
+
+    $scope.route = {
+        title:'Route #1',
+        description:'2 museums, walk by Hortus Botanical, lunch at Artis zoo, end your day at Rijksmuseum'
+    };
+
+    $ionicModal.fromTemplateUrl('/js/modals/route-modal.html', {
+        scope: $scope,
+        animation: 'slide-in-up'
+    }).then(function(modal) {
+        $scope.modal = modal;
+    });
+    $scope.openModal = function() {
+        $scope.modal.show();
+    };
+    $scope.closeModal = function() {
+        $scope.modal.hide();
+    };
 
     $scope.mapCreated = function(map) {
       $scope.map = map;
@@ -152,8 +170,6 @@ angular.module('app.controllers', [])
     });
   };
 
-
-
 })
   .controller('MapStepCtrl', function($scope, $ionicLoading, lodash) {
 
@@ -207,48 +223,52 @@ angular.module('app.controllers', [])
         $scope.activities = [
             {
                 title:'cycle',
-                image:'ion-android-bicycle',
+                image:'bicycle.png',
                 active:false
             },{
                 title:'boat',
-                image:'ion-android-boat',
+                image:'boat.png',
                 active:false
             },{
                 title:'surprise',
-                image:'ion-load-b',
+                image:'alien.png',
                 active:false
             },{
                 title:'local food',
-                image:'ion-fork',
+                image:'burger.png',
                 active:false
             },{
                 title:'sightseeing',
-                image:'ion-camera',
+                image:'binoculars.png',
                 active:false
             },{
                 title:'walk',
-                image:'ion-android-walk',
+                image:'city.png',
                 active:false
             },{
                 title:'park',
-                image:'ion-leaf',
+                image:'bird_alt.png',
                 active:false
             },{
                 title:'museum',
-                image:'ion-android-home',
+                image:'museum_pillars.png',
                 active:false
             },{
                 title:'festival',
-                image:'ion-music-note',
+                image:'balloons.png',
                 active:false
             },{
                 title:'pancakes',
-                image:'ion-navicon-round',
+                image:'apple.png',
                 active:false
             },{
                 title:'shopping',
-                image:'ion-bag',
+                image:'bag_shopping.png',
                 active:false
             }
         ]
+    }])
+
+    .controller('TimeCtrl', ['$scope', '$state', function($scope, $state) {
+
     }]);
