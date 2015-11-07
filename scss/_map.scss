@@ -1,0 +1,11 @@
+.full-route-list {
+  margin-bottom: $bar-height!important;
+
+  .route-item-process{
+    &:before {
+      content: '';
+      position: absolute;
+      left: 10px;
+    }
+  }
+}

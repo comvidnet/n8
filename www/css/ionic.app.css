@@ -9088,6 +9088,9 @@ h1 {
 .full-height {
   height: 100%; }
 
+.no-margin {
+  margin: 0; }
+
 .display-table {
   display: table; }
 
@@ -9234,3 +9237,10 @@ map {
       background-color: #00b2f3; }
       .activities-list .activity.active .circle i {
         color: white; }
+
+.full-route-list {
+  margin-bottom: 50px !important; }
+  .full-route-list .route-item-process:before {
+    content: '';
+    position: absolute;
+    left: 10px; }

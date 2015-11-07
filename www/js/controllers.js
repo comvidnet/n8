@@ -55,6 +55,7 @@ angular.module('app.controllers', [])
     });
     $rootScope.openFullRouteModal = function() {
         $rootScope.modalFullRoute.show();
+        console.log($rootScope.routeInfo);
     };
     $rootScope.closeFullRouteModal = function() {
         $rootScope.modalFullRoute.hide();
@@ -65,8 +66,8 @@ angular.module('app.controllers', [])
       $state.go('app.map');
     };
   }])
-.controller('MapCtrl', function($scope, $ionicLoading, lodash, $ionicModal, $http, $ionicModal, $timeout) {
-    $scope.routeInfo = [];
+.controller('MapCtrl', function($scope, $rootScope, $ionicLoading, lodash, $ionicModal, $http, $timeout) {
+    $rootScope.routeInfo = [];
     $scope.loading = $ionicLoading.show({
       content: 'Loading...',
       showBackdrop: false
@@ -134,7 +135,7 @@ angular.module('app.controllers', [])
 
               $scope.$apply(function () {
                 for (var i = 0; i < route.legs.length; i++) {
-                  $scope.routeInfo.push({
+                  $rootScope.routeInfo.push({
                     text: route.legs[i].start_address,
                     duration: route.legs[i].duration.text});
 
