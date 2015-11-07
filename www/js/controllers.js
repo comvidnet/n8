@@ -39,11 +39,11 @@ var routeSteps = [];
 
 
 angular.module('app.controllers', [])
-  .controller('MainCtrl', function($scope, $rootScope, $ionicModal, $ionicNavBarDelegate) {
-     $rootScope.baseUrl = 'http://localhost:8100/';
+  .controller('MainCtrl', function($scope, $rootScope, $ionicModal) {
+     $rootScope.baseUrl = 'http://n8.test.ilumy.com:3000/';
 
         $rootScope.back = function(){
-            $ionicNavBarDelegate.back();
+            window.history.back();
         };
 
     $rootScope.rp = rp;
@@ -104,7 +104,7 @@ angular.module('app.controllers', [])
       navigator.geolocation.getCurrentPosition(function (pos) {
         //getRouteFrom server
 
-        $http.get('http://localhost:8100/getRoute').then(function(result) {
+        $http.get('http://n8.test.ilumy.com:3000/getRoute').then(function(result) {
 
           rp = result.data.route.route;
           var waytp = rp.slice();
