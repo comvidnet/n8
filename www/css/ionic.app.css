@@ -9121,6 +9121,17 @@ map {
 #mapinfo span {
   font-style: italic; }
 
+.logo-holder {
+  margin-top: 60px;
+  text-align: center; }
+  .logo-holder .logo {
+    width: 100px;
+    height: auto; }
+  .logo-holder.medium {
+    margin-top: 50px; }
+    .logo-holder.medium .logo {
+      width: 80px; }
+
 .n8-box {
   background-color: white;
   height: 350px;
@@ -9156,6 +9167,8 @@ map {
 
 .start-page {
   box-shadow: inset 0 0 0 500px rgba(37, 37, 37, 0.6); }
+  .start-page .logo-holder {
+    margin-top: 60px; }
 
 .choices-page {
   background-color: #00dda7; }
@@ -9176,8 +9189,7 @@ map {
       background-size: cover; }
 
 .time-page {
-  background-color: #00dda7;
-  padding-top: 60px; }
+  background-color: #00dda7; }
 
 .activities-page {
   background-color: #00dda7; }
@@ -9187,7 +9199,7 @@ map {
   text-align: center; }
   .activities-list .activity {
     display: inline-block;
-    margin: 10px; }
+    margin: 6px; }
     .activities-list .activity .circle {
       width: 55px;
       height: 55px;
@@ -9198,6 +9210,9 @@ map {
       .activities-list .activity .circle i {
         font-size: 31px;
         line-height: 52px; }
+      .activities-list .activity .circle img {
+        width: 30px;
+        padding-top: 12px; }
     .activities-list .activity footer {
       color: white;
       text-align: center; }

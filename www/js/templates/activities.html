@@ -4,11 +4,15 @@
 
 <ion-content scroll="false" class="activities-page">
     <div class="padding">
+        <div class="logo-holder medium">
+            <img src="{{baseUrl}}img/logo.png" class="logo"/>
+        </div>
         <ul class="activities-list">
             <li class="activity" ng-repeat="activity in activities" ng-class="activity.active ? 'active' : ''">
                 <main ng-click="activity.active = !activity.active">
                     <div class="circle">
-                        <i class="ion" ng-class="activity.image"></i>
+                        <!--<i class="ion" ng-class="activity.image"></i>-->
+                        <img src="{{baseUrl}}img/icons/{{activity.image}}"/>
                     </div>
                 </main>
                 <footer>{{activity.title}}</footer>

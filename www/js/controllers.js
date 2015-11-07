@@ -214,47 +214,47 @@ angular.module('app.controllers', [])
         $scope.activities = [
             {
                 title:'cycle',
-                image:'ion-android-bicycle',
+                image:'bicycle.png',
                 active:false
             },{
                 title:'boat',
-                image:'ion-android-boat',
+                image:'boat.png',
                 active:false
             },{
                 title:'surprise',
-                image:'ion-load-b',
+                image:'alien.png',
                 active:false
             },{
                 title:'local food',
-                image:'ion-fork',
+                image:'burger.png',
                 active:false
             },{
                 title:'sightseeing',
-                image:'ion-camera',
+                image:'binoculars.png',
                 active:false
             },{
                 title:'walk',
-                image:'ion-android-walk',
+                image:'city.png',
                 active:false
             },{
                 title:'park',
-                image:'ion-leaf',
+                image:'bird_alt.png',
                 active:false
             },{
                 title:'museum',
-                image:'ion-android-home',
+                image:'museum_pillars.png',
                 active:false
             },{
                 title:'festival',
-                image:'ion-music-note',
+                image:'balloons.png',
                 active:false
             },{
                 title:'pancakes',
-                image:'ion-navicon-round',
+                image:'apple.png',
                 active:false
             },{
                 title:'shopping',
-                image:'ion-bag',
+                image:'bag_shopping.png',
                 active:false
             }
         ]

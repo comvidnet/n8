@@ -57,7 +57,20 @@ map {
   font-style: italic;
 }
 
-
+.logo-holder {
+  margin-top: 60px;
+  text-align: center;
+  .logo {
+    width: 100px;
+    height:auto;
+  }
+  &.medium {
+    margin-top: 50px;
+    .logo {
+      width: 80px;
+    }
+  }
+}
 
 .n8-box {
   background-color: white;
